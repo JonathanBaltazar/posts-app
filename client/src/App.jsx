@@ -1,7 +1,27 @@
 import { useState, useEffect } from "react";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import PostForm from './pages/PostForm'
+import NotFoundPage from './pages/NotFoundPage'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />
+  },
+  {
+    path: "/new-post",
+    element: <PostForm />
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
+  }
+])
 
 function App() {
-    const [theme, setTheme] = useState("light");
+    /*
+      const [theme, setTheme] = useState("light");
 
     const handleTheme = () => {
         setTheme(theme === "light" ? "dark" : "light");
@@ -24,6 +44,11 @@ function App() {
             </button>
         </div>
     );
+    */
+
+    return (
+      <RouterProvider router={router}/>
+    )
 }
 
 export default App;
