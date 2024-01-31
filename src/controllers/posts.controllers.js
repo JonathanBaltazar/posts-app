@@ -68,7 +68,7 @@ export let deletePost = async (req, res) => {
             if (postDeleted.image.public_id) {
                 await deleteImage(postDeleted.image.public_id)
             }
-            return res.json({ message: "Post deleted" });
+            return res.json({message: "Post deleted"});
         }
         return res.json({ message: "Post not found" }).status(404);
     } catch (error) {

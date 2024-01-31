@@ -1,23 +1,27 @@
 import { useState, useEffect } from "react";
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import HomePage from './pages/HomePage'
-import PostForm from './pages/PostForm'
-import NotFoundPage from './pages/NotFoundPage'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import PostForm from "./pages/PostForm";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <HomePage />
-  },
-  {
-    path: "/new-post",
-    element: <PostForm />
-  },
-  {
-    path: "*",
-    element: <NotFoundPage />,
-  }
-])
+    {
+        path: "/",
+        element: <HomePage />,
+    },
+    {
+        path: "/new-post",
+        element: <PostForm />,
+    },
+    {
+        path: "/edit-post/:id",
+        element: <PostForm />,
+    },
+    {
+        path: "*",
+        element: <NotFoundPage />,
+    },
+]);
 
 function App() {
     /*
@@ -46,9 +50,7 @@ function App() {
     );
     */
 
-    return (
-      <RouterProvider router={router}/>
-    )
+    return <RouterProvider router={router} />;
 }
 
 export default App;
